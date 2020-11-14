@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
+  <modules>
+    <module>tron-spring-boot-autoconfigure</module>
+  </modules>
 
-    <groupId>com.clouds3n</groupId>
-    <artifactId>tron</artifactId>
-    <version>2.3.0</version>
-    <description>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.3.0.RELEASE</version>
+    <relativePath/>
+  </parent>
 
-      _____   _       _     _       _____              _   _
-      |  ___|(_) __ _| |__ | |_    |  ___|__  _ __    | | | |___  ___ _ __
-      | |_   | |/ _` | '_ \| __|   | |_ / _ \| '__|   | | | / __|/ _ \ '__|
-      |  _|  | | (_| | | | | |_    |  _| (_) | |      | |_| \__ \  __/ |
-      |_|    |_|\__, |_| |_|\__|   |_|  \___/|_|       \___/|___/\___|_|
-                |___/
+  <groupId>com.clouds3n.common</groupId>
+  <artifactId>tron</artifactId>
+  <version>2.3.0</version>
+  <name>tron</name>
+  <packaging>pom</packaging>
 
-      Tron will make us faster!
-    </description>
+  <description>
+
+    _____   _       _     _       _____              _   _
+    |  ___|(_) __ _| |__ | |_    |  ___|__  _ __    | | | |___  ___ _ __
+    | |_   | |/ _` | '_ \| __|   | |_ / _ \| '__|   | | | / __|/ _ \ '__|
+    |  _|  | | (_| | | | | |_    |  _| (_) | |      | |_| \__ \  __/ |
+    |_|    |_|\__, |_| |_|\__|   |_|  \___/|_|       \___/|___/\___|_|
+              |___/
+
+    Tron will make us faster!
+    Concept: Configuration All In One.
+  </description>
 
   <developers>
     <developer>
@@ -25,5 +39,123 @@
       <url>https://yangyunsen.com</url>
     </developer>
   </developers>
+
+  <properties>
+    <java.version>11</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <encoding>UTF-8</encoding>
+    <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+    <spring.boot.version>2.3.0.RELEASE</spring.boot.version>
+    <lombok.version>1.18.16</lombok.version>
+    <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
+    <maven.plugin.surefire.version>2.22.2</maven.plugin.surefire.version>
+    <junit.platform.launcher.version>1.7.0</junit.platform.launcher.version>
+    <druid.starter.version>1.2.3</druid.starter.version>
+    <mybatis.plus.version>3.4.1</mybatis.plus.version>
+    <dynamic.datasource.version>3.2.1</dynamic.datasource.version>
+    <p6spy.version>3.9.1</p6spy.version>
+    <netty.version>4.1.50.Final</netty.version>
+    <commons.lang3.version>3.11</commons.lang3.version>
+    <commons.io.version>2.8.0</commons.io.version>
+    <commons.collections.version>4.4</commons.collections.version>
+    <fastjson.version>1.2.75</fastjson.version>
+    <oracle.driver.version>19.7.0.0</oracle.driver.version>
+    <mysql.driver.version>8.0.22</mysql.driver.version>
+    <elastic.search.version>7.10.0</elastic.search.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.elasticsearch</groupId>
+        <artifactId>elasticsearch</artifactId>
+        <version>${elastic.search.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.elasticsearch.client</groupId>
+        <artifactId>elasticsearch-rest-high-level-client</artifactId>
+        <version>${elastic.search.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.elasticsearch.client</groupId>
+        <artifactId>elasticsearch-rest-client-sniffer</artifactId>
+        <version>${elastic.search.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        <version>${dynamic.datasource.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis.plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>${mybatis.plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.starter.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>p6spy</groupId>
+        <artifactId>p6spy</artifactId>
+        <version>${p6spy.version}</version>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>com.oracle.database.jdbc</groupId>
+        <artifactId>ojdbc8</artifactId>
+        <version>${oracle.driver.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.driver.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-launcher</artifactId>
+        <version>${junit.platform.launcher.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-all</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons.lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons.io.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${commons.collections.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${fastjson.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>
