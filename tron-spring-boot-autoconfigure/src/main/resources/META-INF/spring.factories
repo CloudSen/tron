@@ -1,0 +1,10 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.clouds3n.common.torn.autoconfigure.system.StarterAutoConfiguration \
+    com.clouds3n.common.torn.autoconfigure.druid.DruidMonitorAutoConfiguration \
+    com.clouds3n.common.torn.autoconfigure.es.EsAutoConfiguration \
+    com.clouds3n.common.torn.autoconfigure.exception.GlobalExceptionHandlerAutoConfiguration \
+    com.clouds3n.common.torn.autoconfigure.mybatis.CustomMybatisPlusAutoConfiguration \
+    com.clouds3n.common.torn.autoconfigure.mybatis.transaction.TransactionAutoConfiguration \
+    com.clouds3n.common.torn.autoconfigure.script.ApplicationScriptsWriterAutoConfiguration \
+    com.clouds3n.common.torn.autoconfigure.security.CustomSecurityAutoConfiguration \
+    com.clouds3n.common.torn.autoconfigure.threadpool.ThreadPoolAutoConfiguration

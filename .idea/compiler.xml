@@ -2,20 +2,24 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="tron-spring-boot-starter" />
         <module name="tron-spring-boot-autoconfigure" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="tron-parent" target="1.8" />
+      <module name="sample-project" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="tron-spring-boot-autoconfigure" options="-parameters" />
+      <module name="sample-project" options="" />
+      <module name="tron-spring-boot-autoconfigure" options="" />
+      <module name="tron-spring-boot-starter" options="" />
     </option>
   </component>
 </project>
